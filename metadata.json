@@ -1,0 +1,5 @@
+{
+  "name": "AI Film Studio Director",
+  "description": "A professional-grade 3D virtual studio for setting up cinematic shots and rendering them using Gemini AI.",
+  "requestFramePermissions": []
+}
