@@ -4,17 +4,17 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-## 🚀 Características
+## 🚀 Features
 
-- **Generación de imágenes con FIBO API**: Tecnología de IA avanzada para crear imágenes cinematográficas
-- **Estudio 3D interactivo**: Controla la cámara y composición en tiempo real
-- **Interfaz moderna**: UI/UX optimizada con React y Three.js
-- **Arquitectura modular**: Código organizado con Zustand para state management
+- **Image generation with the FIBO API**: Advanced AI technology to create cinematic images
+- **Interactive 3D studio**: Control camera and composition in real time
+- **Modern interface**: UI/UX optimized with React and Three.js
+- **Modular architecture**: Code organized with Zustand for state management
 
-## 🛠️ Requisitos
+## 🛠️ Requirements
 
-- **Node.js 20+** (actualizado automáticamente con el script)
-- **npm** o **yarn**
+- **Node.js 20+** (the `start-dev.sh` can help set this up)
+- **npm** or **yarn**
 
 ## 📦 Instalación y ejecución
 
@@ -39,11 +39,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm use 20
 
-# Iniciar servidor
+# Start server
 npm run dev
 ```
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
 Copia el archivo `.env.example` a `.env` y configura las variables de FIBO:
 
@@ -55,46 +55,46 @@ FIBO_GENERATE_PATH=/fibo/image/generate
 FIBO_AUTH_HEADER=api_token
 ```
 
-## 🎛️ Presets de Iluminación y Cámara
+## 🎛️ Lighting and Camera Presets
 
 El frontend ahora soporta presets dinámicos proveniente del backend. Hay dos tipos de presets:
 
-- Presets integrados (definidos en `src/types.ts`): `Studio`, `Golden Hour`, `Midnight`, `Overcast`, `Neon City`.
-- Presets de "directores" proporcionados por el backend (`/presets/list`) — ej. `wes_anderson`, `roger_deakins`.
+ - Built-in presets (defined in `src/types.ts`): `Studio`, `Golden Hour`, `Midnight`, `Overcast`, `Neon City`.
+ - "Director" presets provided by the backend (`/presets/list`) — e.g. `wes_anderson`, `roger_deakins`.
 
-Cómo se usan:
+How to use:
 
-- En el panel lateral (`ControlPanel`), el selector de `Lighting Setup` lista primero los presets integrados.
-- Debajo, si existen, aparecerán los presets de directores como `Director — Name`.
-- Al seleccionar un preset de director, la escena aplica una configuración de iluminación mapeada automáticamente (por ejemplo `golden_hour`, `dramatic`, etc.).
+- In the side panel (`ControlPanel`), the `Lighting Setup` selector lists built-in presets first.
+- Below that, if available, director presets appear as `Director — Name`.
+- When selecting a director preset, the scene applies a mapped lighting configuration automatically (for example `golden_hour`, `dramatic`, etc.).
 
-Si necesitas añadir nuevos presets en el backend, expónlos en la ruta `/presets/list` como un objeto cuyo valor para cada clave incluye `name`, `camera`, `lighting`, `style`.
+If you need to add new presets in the backend, expose them at `/presets/list` as an object whose value for each key includes `name`, `camera`, `lighting`, and `style`.
 
 
-## 🌐 Acceso
+## 🌐 Access
 
-Una vez iniciado, el servidor estará disponible en:
+Once started, the dev server will be available at:
 - **Local**: http://localhost:5173/
-- **Red**: http://192.168.1.100:5173/ (y otras IPs de red)
+- **Network**: http://192.168.1.100:5173/ (and other LAN IPs)
 
-## 📁 Estructura del proyecto
+## 📁 Project structure
 
 ```
 StudioV2/
 ├── src/
-│   ├── components/     # Componentes React
-│   ├── services/       # Servicios API (FIBO, backend)
-│   ├── stores/         # Estado con Zustand
-│   └── types.ts        # Definiciones TypeScript
+│   ├── components/     # React components
+│   ├── services/       # API services (FIBO, backend)
+│   ├── stores/         # Zustand stores
+│   └── types.ts        # TypeScript definitions
 ├── public/             # Assets estáticos
 └── start-dev.sh        # Script de inicio
 ```
 
-## 🔧 Tecnologías
+## 🔧 Technologies
 
-- **React 19** con TypeScript
-- **Three.js** + React Three Fiber para 3D
-- **Vite** para desarrollo rápido
-- **Zustand** para state management
-- **FIBO API** para generación de imágenes
-- **Tailwind CSS** para estilos
+- **React 19** with TypeScript
+- **Three.js** + React Three Fiber for 3D
+- **Vite** for fast development
+- **Zustand** for state management
+- **FIBO API** for image generation
+- **Tailwind CSS** for styling

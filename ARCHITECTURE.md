@@ -5,17 +5,17 @@
 ```
 src/
 ├── components/
-│   ├── ControlPanel.tsx      - Panel de control de la aplicación
-│   ├── Mannequin.tsx          - Modelo 3D mannequin
-│   └── StudioScene.tsx        - Escena 3D principal
+│   ├── ControlPanel.tsx      - Application control panel
+│   ├── Mannequin.tsx          - 3D mannequin model
+│   └── StudioScene.tsx        - Main 3D scene
 ├── services/
 │   └── geminiService.ts       - API de generación con Gemini
 ├── stores/                    - Estado global con Zustand
 │   ├── index.ts              - Exports de todos los stores
-│   ├── useSettingsStore.ts   - Estado de configuración (prompt, lighting, etc)
-│   ├── useCameraStore.ts     - Estado de la cámara 3D
-│   ├── useResultStore.ts     - Estado de resultados generados
-│   └── useViewportStore.ts   - Estado del viewport (grilla, sujeto, etc)
+│   ├── useSettingsStore.ts   - Settings state (prompt, lighting, etc)
+│   ├── useCameraStore.ts     - 3D camera state
+│   ├── useResultStore.ts     - Generated results state
+│   └── useViewportStore.ts   - Viewport state (grid, subject, etc)
 ├── hooks/                     - Custom hooks (para future expansion)
 ├── App.tsx                    - Componente principal
 ├── main.tsx                   - Punto de entrada

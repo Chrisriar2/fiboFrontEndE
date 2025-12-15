@@ -8,12 +8,12 @@ export const PublicNavbar = ({ onLoginClick }: any) => (
   <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center mix-blend-difference text-white">
     <div className="text-xl font-serif tracking-widest font-bold z-50 cursor-pointer">MUSEUM<span className="text-blue-400">.AI</span></div>
     <div className="hidden md:flex items-center gap-12 z-50">
-      {['Artistas', 'Manifiesto', 'Eventos'].map((item) => (
+      {['Artists', 'Manifesto', 'Events'].map((item) => (
         <a key={item} href="#" className="text-[10px] uppercase tracking-[0.2em] text-white/70 hover:text-white transition-colors relative group">{item}</a>
       ))}
       <div className="h-4 w-px bg-white/30"></div>
-      <button onClick={onLoginClick} className="text-[10px] uppercase tracking-[0.2em] font-bold hover:text-blue-400 transition-colors">Iniciar Sesión</button>
-      <button onClick={onLoginClick} className="px-6 py-2 border border-white/30 hover:bg-white hover:text-black hover:border-white transition-all text-[10px] uppercase tracking-[0.2em]">Unirse</button>
+      <button onClick={onLoginClick} className="text-[10px] uppercase tracking-[0.2em] font-bold hover:text-blue-400 transition-colors">Sign In</button>
+      <button onClick={onLoginClick} className="px-6 py-2 border border-white/30 hover:bg-white hover:text-black hover:border-white transition-all text-[10px] uppercase tracking-[0.2em]">Join</button>
     </div>
     <button className="md:hidden text-white z-50"><ChevronDown /></button>
   </nav>
@@ -29,11 +29,11 @@ export const LandingHero = ({ onScrollDown }: any) => {
       </div>
       <div className="relative z-20 text-center px-6 mix-blend-difference">
         <ScrollReveal>
-          <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-white/80 mb-6">La nueva era del arte</p>
+          <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-white/80 mb-6">The new era of art</p>
           <h1 className="text-6xl md:text-9xl font-serif text-white mb-6 italic tracking-tight">Renaissance</h1>
         </ScrollReveal>
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce-slow cursor-pointer" onClick={onScrollDown}>
-          <span className="text-[10px] uppercase tracking-widest mb-2 text-white/60">Descubre</span>
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce-slow cursor-pointer" onClick={onScrollDown}>
+          <span className="text-[10px] uppercase tracking-widest mb-2 text-white/60">Discover</span>
           <ChevronDown className="text-white/60" />
         </div>
       </div>
@@ -46,9 +46,9 @@ export const LandingSectionWho = () => (
     <div className="grid md:grid-cols-2 gap-24 items-center max-w-7xl mx-auto">
       <div>
         <ScrollReveal>
-          <span className="block text-blue-400 text-xs tracking-[0.3em] uppercase mb-4">¿Quiénes Somos?</span>
-          <h2 className="text-4xl md:text-6xl font-serif text-white mb-8 leading-tight">Arquitectos de la Imaginación Digital</h2>
-          <p className="text-white/60 font-light leading-loose text-lg mb-12">No somos solo una plataforma, somos el lienzo donde la inteligencia artificial y la sensibilidad humana convergen.</p>
+          <span className="block text-blue-400 text-xs tracking-[0.3em] uppercase mb-4">Who We Are</span>
+          <h2 className="text-4xl md:text-6xl font-serif text-white mb-8 leading-tight">Architects of Digital Imagination</h2>
+          <p className="text-white/60 font-light leading-loose text-lg mb-12">We're not just a platform — we're the canvas where artificial intelligence and human sensibility converge.</p>
         </ScrollReveal>
       </div>
       <div className="relative h-[600px] w-full hidden md:block overflow-hidden">
@@ -67,8 +67,8 @@ export const LandingFooterCTA = ({ onLoginClick }: any) => (
   <section className="h-[80vh] flex flex-col items-center justify-center relative bg-[#080808] border-t border-white/10">
     <ScrollReveal>
       <div className="text-center px-6">
-        <h2 className="text-5xl md:text-8xl font-serif text-white mb-12">Empieza tu Legado</h2>
-        <ButtonPrimary onClick={onLoginClick} className="w-64">Entrar a la Bóveda</ButtonPrimary>
+  <h2 className="text-5xl md:text-8xl font-serif text-white mb-12">Begin Your Legacy</h2>
+  <ButtonPrimary onClick={onLoginClick} className="w-64">Enter the Vault</ButtonPrimary>
       </div>
     </ScrollReveal>
     <footer className="absolute bottom-0 w-full py-8 border-t border-white/5 flex justify-between px-12 text-[10px] text-white/20 uppercase tracking-widest">

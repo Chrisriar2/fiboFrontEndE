@@ -58,9 +58,9 @@ export const PrivateLayout = ({
         </div>
         <div className="hidden md:flex gap-12">
           {[
-            { id: "explore", label: "Colección" },
-            { id: "profile", label: "Mi Estudio" },
-            { id: "settings", label: "Ajustes" },
+            { id: "explore", label: "Collection" },
+            { id: "profile", label: "My Studio" },
+            { id: "settings", label: "Settings" },
           ].map((item) => (
             <button
               key={item.id}
@@ -168,7 +168,7 @@ export const ExploreView = () => {
         }
       };
 
-      const imageUrl = await generateSceneImageFIBO(
+  const imageUrl = await generateSceneImageFIBO(
         settings,
         cameraState,
         cameraDescription,
@@ -178,10 +178,10 @@ export const ExploreView = () => {
         }
       );
       setImageResult(imageUrl);
-      alert("Generación enviada. Comprueba la ventana de resultados.");
+      alert("Generation sent. Check the results panel.");
     } catch (err) {
       console.error("Error generating from scene", err);
-      alert("Error al generar la imagen. Revisa la consola.");
+      alert("Error generating image. Check the console.");
     } finally {
       setLoading(false);
     }
@@ -196,14 +196,14 @@ export const ExploreView = () => {
               Dashboard
             </span>
             <h2 className="text-5xl md:text-7xl font-serif mt-4 text-white">
-              Galería Privada
+              Private Gallery
             </h2>
           </div>
           <div>
             <div className="flex gap-3">
               <ButtonPrimary onClick={handleCreate}>
                 <Plus />
-                Crear
+                Create
               </ButtonPrimary>
             </div>
           </div>
@@ -219,12 +219,12 @@ export const ExploreView = () => {
               <div className="relative aspect-[4/5] overflow-hidden mb-6">
                 <img
                   src={project.image_url || project.image}
-                  alt={project.title || "obra"}
+                  alt={project.title || "work"}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
                   <span className="border border-white/30 px-6 py-2 text-xs tracking-widest uppercase text-white hover:bg-white hover:text-black transition-colors">
-                    Ver Obra
+                    View Work
                   </span>
                 </div>
               </div>
@@ -234,7 +234,7 @@ export const ExploreView = () => {
                     {project.title || "Untitled"}
                   </h3>
                   <p className="text-white/40 text-sm mt-1 uppercase tracking-wider">
-                    Por {project.author || "Unknown"}
+                    By {project.author || "Unknown"}
                   </p>
                 </div>
                 <div className="flex gap-4 text-white/40">
@@ -270,9 +270,9 @@ export const ProfileView = () => (
       </div>
       <div className="lg:col-span-8">
         <div className="mb-12 border-b border-white/10 pb-4 flex justify-between items-end">
-          <h3 className="text-xl font-serif text-white">Obras Recientes</h3>
+          <h3 className="text-xl font-serif text-white">Recent Works</h3>
           <button className="text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors flex items-center gap-2">
-            Ver Todo
+            View All
           </button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -290,7 +290,7 @@ export const ProfileView = () => (
           >
             <Plus className="mb-2 group-hover:scale-125 transition-transform" />
             <span className="text-xs tracking-widest uppercase">
-              Crear Nuevo
+              Create New
             </span>
           </div>
         </div>
@@ -302,13 +302,13 @@ export const ProfileView = () => (
 export const SettingsView = () => (
   <div className="pt-32 px-6 max-w-3xl mx-auto min-h-screen">
     <ScrollReveal>
-      <h2 className="text-4xl font-serif text-white mb-12">Configuración</h2>
+  <h2 className="text-4xl font-serif text-white mb-12">Settings</h2>
     </ScrollReveal>
     <div className="space-y-16">
       <ScrollReveal delay={100}>
         <section>
           <h3 className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase mb-8 border-b border-white/10 pb-4">
-            Perfil Público
+            Public Profile
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex flex-col gap-4">
@@ -320,7 +320,7 @@ export const SettingsView = () => (
                   src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2574&auto=format&fit=crop"
                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity"
                 />
-                <span className="text-xs uppercase relative z-10">Cambiar</span>
+                <span className="text-xs uppercase relative z-10">Change</span>
               </div>
             </div>
             <div className="space-y-6">

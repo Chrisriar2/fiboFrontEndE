@@ -36,16 +36,16 @@ export const AuthView = ({ onLoginSuccess, onBack }: any) => {
       }
     } catch (err) {
       console.error('Auth error', err);
-      alert('Error en autenticación');
+      alert('Authentication error');
     } finally {
       setLoading(false);
     }
   };
 
   const config = {
-    login: { title: 'Bienvenido de Nuevo', subtitle: 'Tu colección espera.', btnText: 'Entrar' },
-    register: { title: 'Crear Cuenta', subtitle: 'Únete a los nuevos maestros.', btnText: 'Registrarse' },
-    recover: { title: 'Recuperar Acceso', subtitle: 'Te enviaremos una llave nueva.', btnText: 'Enviar Instrucciones' }
+    login: { title: 'Welcome Back', subtitle: 'Your collection awaits.', btnText: 'Sign In' },
+    register: { title: 'Create Account', subtitle: 'Join the creative community.', btnText: 'Sign Up' },
+    recover: { title: 'Recover Access', subtitle: "We'll send you a new key.", btnText: 'Send Instructions' }
   }[authMode];
 
   return (
@@ -59,19 +59,19 @@ export const AuthView = ({ onLoginSuccess, onBack }: any) => {
             <p className="text-white/40 text-sm font-light tracking-wide">{config.subtitle}</p>
           </div>
           <form onSubmit={handleSubmit}>
-            {authMode === 'register' && <InputField label="Nombre de Artista" placeholder="Phidias" icon={User} />}
-            <InputField label="Correo Electrónico" type="email" placeholder="artista@museo.ai" icon={Mail} />
-            {authMode !== 'recover' && <InputField label="Contraseña" type="password" placeholder="••••••••" icon={Lock} />}
+            {authMode === 'register' && <InputField label="Artist Name" placeholder="Phidias" icon={User} />}
+            <InputField label="Email Address" type="email" placeholder="artist@museo.ai" icon={Mail} />
+            {authMode !== 'recover' && <InputField label="Password" type="password" placeholder="••••••••" icon={Lock} />}
             <ButtonPrimary type="submit" className="w-full mt-4">{config.btnText}</ButtonPrimary>
           </form>
 
           <div className="mt-6 text-center">
             {authMode !== 'login' ? (
-              <button onClick={() => switchMode('login')} className="text-xs text-white/40">Volver a Iniciar Sesión</button>
+              <button onClick={() => switchMode('login')} className="text-xs text-white/40">Back to Sign In</button>
             ) : (
               <div>
-                <button onClick={() => switchMode('register')} className="mr-4 text-xs text-white/40">Registrarse</button>
-                <button onClick={() => switchMode('recover')} className="text-xs text-white/40">Recuperar</button>
+                <button onClick={() => switchMode('register')} className="mr-4 text-xs text-white/40">Sign Up</button>
+                <button onClick={() => switchMode('recover')} className="text-xs text-white/40">Recover</button>
               </div>
             )}
           </div>

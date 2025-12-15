@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# Script para iniciar el servidor de desarrollo con Node.js 20
-# Esto asegura que siempre se use la versión correcta de Node.js
+# Script to start the development server with Node.js 20
+# Ensures the correct Node.js version is used
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# Usar Node.js 20
+# Use Node.js 20
 nvm use 20
 
-# Verificar versión
-echo "Usando Node.js $(node --version)"
-echo "Usando npm $(npm --version)"
+# Print versions
+echo "Using Node.js $(node --version)"
+echo "Using npm $(npm --version)"
 
-# Iniciar servidor
-echo "Iniciando servidor de desarrollo..."
+# Start dev server
+echo "Starting development server..."
 npx vite --host

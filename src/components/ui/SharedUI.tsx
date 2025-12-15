@@ -148,26 +148,26 @@ export const ResultModal: React.FC = () => {
       ></div>
       <div className="relative w-[min(90vw,900px)] max-h-[90vh] bg-[#0b0b0b] border border-white/10 rounded-xl p-6 overflow-auto z-[3100]">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg text-white">Resultado</h3>
+          <h3 className="text-lg text-white">Result</h3>
           <div className="flex items-center gap-3">
             <button
               onClick={() => {
                 if (imageUrl) {
                   navigator.clipboard?.writeText(imageUrl);
-                  appendStatusLog("Enlace copiado al portapapeles");
+                  appendStatusLog("Link copied to clipboard");
                 }
               }}
               className="text-white/60 hover:text-white text-sm px-3 py-2"
             >
-              Copiar enlace
+              Copy link
             </button>
             {imageUrl && (
-              <a
+                <a
                 href={imageUrl}
                 download
                 className="text-white/60 hover:text-white text-sm px-3 py-2"
               >
-                Descargar
+                Download
               </a>
             )}
             <button
@@ -196,18 +196,18 @@ export const ResultModal: React.FC = () => {
           {imageUrl && (
             <img
               src={imageUrl}
-              alt="Resultado"
+              alt="Result"
               className="max-w-full max-h-[60vh] rounded-md shadow-md mb-4"
             />
           )}
           <div className="w-full mt-4 text-sm text-white/60 space-y-2">
             <div className="font-semibold text-white/80 mb-2">
-              Registro de estado
+              Status log
             </div>
             <div className="max-h-40 overflow-auto bg-white/5 p-3 rounded">
               {statusLogs.length === 0 ? (
                 <div className="text-white/40">
-                  Sin actualizaciones todavía...
+                  No updates yet...
                 </div>
               ) : (
                 statusLogs.map((l: string, i: number) => (

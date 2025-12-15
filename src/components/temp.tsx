@@ -99,7 +99,7 @@ const PublicNavbar = ({ onLoginClick, onGoStudio }: any) => (
         </div>
         
         <div className="hidden md:flex items-center gap-12 z-50">
-            {['Artistas', 'Manifiesto', 'Eventos'].map((item) => (
+            {['Artists', 'Manifesto', 'Events'].map((item) => (
                 <a key={item} href="#" className="text-[10px] uppercase tracking-[0.2em] text-white/70 hover:text-white transition-colors relative group">
                     {item}
                     <span className="absolute -bottom-2 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -107,12 +107,12 @@ const PublicNavbar = ({ onLoginClick, onGoStudio }: any) => (
             ))}
             <div className="h-4 w-px bg-white/30"></div>
             <button onClick={() => onLoginClick('login')} className="text-[10px] uppercase tracking-[0.2em] font-bold hover:text-blue-400 transition-colors">
-                Iniciar Sesión
+                Sign In
             </button>
             <button onClick={() => onLoginClick('register')} className="px-6 py-2 border border-white/30 hover:bg-white hover:text-black hover:border-white transition-all text-[10px] uppercase tracking-[0.2em]">
-                Unirse
+                Join
             </button>
-            <button onClick={() => onGoStudio()} className="ml-4 px-4 py-2 bg-white text-black text-xs uppercase tracking-widest">Ir a Estudio</button>
+            <button onClick={() => onGoStudio()} className="ml-4 px-4 py-2 bg-white text-black text-xs uppercase tracking-widest">Go to Studio</button>
         </div>
         
         <button className="md:hidden text-white z-50">
@@ -142,14 +142,14 @@ const LandingHero = ({ onScrollDown }: any) => {
             {/* Content */}
             <div className="relative z-20 text-center px-6 mix-blend-difference">
                 <ScrollReveal>
-                    <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-white/80 mb-6">La nueva era del arte</p>
+                    <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-white/80 mb-6">The new era of art</p>
                     <h1 className="text-6xl md:text-9xl font-serif text-white mb-6 italic tracking-tight">
                         Renaissance
                     </h1>
                 </ScrollReveal>
                 
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce-slow cursor-pointer" onClick={onScrollDown}>
-                    <span className="text-[10px] uppercase tracking-widest mb-2 text-white/60">Descubre</span>
+                    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce-slow cursor-pointer" onClick={onScrollDown}>
+                    <span className="text-[10px] uppercase tracking-widest mb-2 text-white/60">Discover</span>
                     <ChevronDown className="text-white/60" />
                 </div>
             </div>
@@ -163,13 +163,13 @@ const LandingSectionWho = () => {
             <div className="grid md:grid-cols-2 gap-24 items-center max-w-7xl mx-auto">
                 <div>
                      <ScrollReveal>
-                        <span className="block text-blue-400 text-xs tracking-[0.3em] uppercase mb-4">¿Quiénes Somos?</span>
+                        <span className="block text-blue-400 text-xs tracking-[0.3em] uppercase mb-4">Who We Are</span>
                         <h2 className="text-4xl md:text-6xl font-serif text-white mb-8 leading-tight">
-                            Arquitectos de la <br/> Imaginación Digital
+                            Architects of Digital<br/>Imagination
                         </h2>
                         <p className="text-white/60 font-light leading-loose text-lg mb-12">
-                            No somos solo una plataforma, somos el lienzo donde la inteligencia artificial y la sensibilidad humana convergen. 
-                            Curamos herramientas para que esculpas ideas en tiempo real, transformando el pensamiento en obra visual.
+                            We're not just a platform — we're the canvas where artificial intelligence and human sensibility converge. 
+                            We provide tools to sculpt ideas in real time, turning thought into visual work.
                         </p>
                     </ScrollReveal>
                 </div>
@@ -192,8 +192,8 @@ const LandingFooterCTA = ({ onLoginClick }: any) => {
         <section className="h-[80vh] flex flex-col items-center justify-center relative bg-[#080808] border-t border-white/10">
              <ScrollReveal>
                 <div className="text-center px-6">
-                    <h2 className="text-5xl md:text-8xl font-serif text-white mb-12">Empieza tu Legado</h2>
-                    <ButtonPrimary onClick={onLoginClick} className="w-64">Entrar a la Bóveda</ButtonPrimary>
+                    <h2 className="text-5xl md:text-8xl font-serif text-white mb-12">Begin Your Legacy</h2>
+                    <ButtonPrimary onClick={onLoginClick} className="w-64">Enter the Vault</ButtonPrimary>
                 </div>
             </ScrollReveal>
             <footer className="absolute bottom-0 w-full py-8 border-t border-white/5 flex justify-between px-12 text-[10px] text-white/20 uppercase tracking-widest">
@@ -252,21 +252,21 @@ const AuthView = ({ onLoginSuccess, onBack, initialMode = 'login' }: any) => {
                     localStorage.setItem('token', res.access_token);
                     onLoginSuccess && onLoginSuccess();
                 } else {
-                    alert('Login falló: respuesta inesperada');
+                    alert('Login failed: unexpected response');
                 }
             } else if (authMode === 'register') {
                 const username = (form.querySelector('input[placeholder="Phidias"]') as HTMLInputElement)?.value || '';
                 await authApi.register({ username, email, password });
-                alert('Registro exitoso. Ahora puedes iniciar sesión.');
+                alert('Registration successful. You can now sign in.');
                 setAuthMode('login');
             } else {
                 // recover: backend not available -> show message
-                alert('Funcionalidad de recuperación no disponible en el backend actual.');
+                alert('Recovery functionality not available on the current backend.');
                 setAuthMode('login');
             }
         } catch (err) {
             console.error('Auth error', err);
-            alert('Error en autenticación: ' + (err as any).message || String(err));
+            alert('Authentication error: ' + (err as any).message || String(err));
         }
     };
 
@@ -274,24 +274,24 @@ const AuthView = ({ onLoginSuccess, onBack, initialMode = 'login' }: any) => {
     const config = {
         login: {
             image: AUTH_IMAGE_LOGIN,
-            title: "Bienvenido de Nuevo",
-            subtitle: "Tu colección espera.",
+            title: "Welcome Back",
+            subtitle: "Your collection awaits.",
             action: onLoginSuccess,
-            btnText: "Entrar"
+            btnText: "Sign In"
         },
         register: {
             image: AUTH_IMAGE_REGISTER,
-            title: "Crear Cuenta",
-            subtitle: "Únete a los nuevos maestros.",
+            title: "Create Account",
+            subtitle: "Join the creative community.",
             action: onLoginSuccess,
-            btnText: "Registrarse"
+            btnText: "Sign Up"
         },
         recover: {
             image: AUTH_IMAGE_RECOVER,
-            title: "Recuperar Acceso",
-            subtitle: "Te enviaremos una llave nueva.",
+            title: "Recover Access",
+            subtitle: "We'll send you a new key.",
             action: () => switchMode('login'), 
-            btnText: "Enviar Instrucciones"
+            btnText: "Send Instructions"
         }
     }[authMode];
 
@@ -313,7 +313,7 @@ const AuthView = ({ onLoginSuccess, onBack, initialMode = 'login' }: any) => {
                     />
                 </div>
                 <div className="absolute bottom-12 left-12 z-20 hidden lg:block">
-                     <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Colección Permanente</p>
+                     <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Permanent Collection</p>
                      <h3 className="text-2xl font-serif italic">"Clasicismo Digital"</h3>
                 </div>
             </div>
@@ -330,7 +330,7 @@ const AuthView = ({ onLoginSuccess, onBack, initialMode = 'login' }: any) => {
                     <div className="mb-12">
                         {authMode !== 'login' && (
                              <button onClick={() => switchMode('login')} className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/40 hover:text-white mb-6 transition-colors">
-                                 <ArrowLeft size={14}/> Volver
+                                 <ArrowLeft size={14}/> Back
                              </button>
                         )}
                         <h2 className="text-4xl lg:text-5xl font-serif text-white mb-2">{config.title}</h2>
@@ -339,20 +339,20 @@ const AuthView = ({ onLoginSuccess, onBack, initialMode = 'login' }: any) => {
 
                     <form onSubmit={handleSubmitAuth}>
                         
-                        {authMode === 'register' && (
-                            <InputField label="Nombre de Artista" placeholder="Phidias" icon={User} />
-                        )}
+                       {authMode === 'register' && (
+                       <InputField label="Artist Name" placeholder="Phidias" icon={User} />
+                    )}
 
-                        <InputField label="Correo Electrónico" type="email" placeholder="artista@museo.ai" icon={Mail} />
+                    <InputField label="Email Address" type="email" placeholder="artist@museo.ai" icon={Mail} />
                         
-                        {authMode !== 'recover' && (
-                             <InputField label="Contraseña" type="password" placeholder="••••••••" icon={Lock} />
-                        )}
+                    {authMode !== 'recover' && (
+                        <InputField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+                    )}
 
                         {authMode === 'login' && (
                             <div className="flex justify-end mb-8">
                                 <button type="button" onClick={() => switchMode('recover')} className="text-[10px] uppercase tracking-widest text-white/40 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">
-                                    ¿Olvidaste tu contraseña?
+                                    Forgot your password?
                                 </button>
                             </div>
                         )}
@@ -362,9 +362,9 @@ const AuthView = ({ onLoginSuccess, onBack, initialMode = 'login' }: any) => {
 
                     {authMode === 'login' && (
                         <div className="mt-12 text-center">
-                            <span className="text-xs text-white/30 uppercase tracking-widest">¿Aún no tienes acceso?</span>
+                            <span className="text-xs text-white/30 uppercase tracking-widest">Don't have access yet?</span>
                             <button onClick={() => switchMode('register')} className="block mx-auto mt-2 text-xs text-white uppercase tracking-widest border-b border-white/40 pb-1 hover:border-white transition-colors">
-                                Solicitar Registro
+                                Request Access
                             </button>
                         </div>
                     )}
@@ -383,7 +383,7 @@ const PrivateLayout = ({ onViewChange, currentView, children, onLogout }: any) =
                 MUSEUM<span className="text-blue-400">.AI</span>
             </div>
             <div className="hidden md:flex gap-12">
-                {[ {id:'explore', label:'Colección'}, {id:'profile', label:'Mi Estudio'}, {id:'settings', label:'Ajustes'} ].map(item => (
+                {[ {id:'explore', label:'Collection'}, {id:'profile', label:'My Studio'}, {id:'settings', label:'Settings'} ].map(item => (
                     <button 
                         key={item.id}
                         onClick={() => onViewChange(item.id)}
@@ -427,7 +427,7 @@ const ExploreView = () => (
               <div className="relative aspect-[4/5] overflow-hidden mb-6">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-                  <span className="border border-white/30 px-6 py-2 text-xs tracking-widest uppercase text-white hover:bg-white hover:text-black transition-colors">Ver Obra</span>
+                  <span className="border border-white/30 px-6 py-2 text-xs tracking-widest uppercase text-white hover:bg-white hover:text-black transition-colors">View Work</span>
                 </div>
               </div>
               <div className="flex justify-between items-start border-t border-white/20 pt-4">
@@ -460,7 +460,7 @@ const ProfileView = () => {
                         <p className="text-blue-400 text-xs tracking-[0.2em] uppercase mb-6 text-center lg:text-left">Visual Artist & AI Creator</p>
                         
                         <p className="text-white/60 font-light leading-relaxed mb-8 text-sm text-center lg:text-left">
-                            "Busco la intersección entre la escultura clásica y la síntesis digital. Mis obras son un intento de congelar el caos en mármol virtual."
+                            "I seek the intersection between classical sculpture and digital synthesis. My works attempt to freeze chaos into virtual marble."
                         </p>
 
                         <div className="flex gap-4 justify-center lg:justify-start mb-12">
@@ -483,12 +483,12 @@ const ProfileView = () => {
 
                 {/* Columna Derecha: Galería Personal */}
                 <div className="lg:col-span-8">
-                     <div className="mb-12 border-b border-white/10 pb-4 flex justify-between items-end">
-                         <h3 className="text-xl font-serif text-white">Obras Recientes</h3>
-                         <button className="text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors flex items-center gap-2">
-                            Ver Todo <ArrowRight size={14}/>
-                         </button>
-                     </div>
+                            <div className="mb-12 border-b border-white/10 pb-4 flex justify-between items-end">
+                                <h3 className="text-xl font-serif text-white">Recent Works</h3>
+                                <button className="text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors flex items-center gap-2">
+                                    View All <ArrowRight size={14}/>
+                                </button>
+                            </div>
                      
                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {[1,2,3,4].map((i) => (
@@ -514,9 +514,9 @@ const ProfileView = () => {
                                     }}
                                   >
                                     <Plus className="mb-2 group-hover:scale-125 transition-transform" />
-                                    <span className="text-xs tracking-widest uppercase">
-                                      Crear Nuevo
-                                    </span>
+                                                                        <span className="text-xs tracking-widest uppercase">
+                                                                            Create New
+                                                                        </span>
                                   </div>
                      </div>
                 </div>
@@ -529,25 +529,25 @@ const SettingsView = () => {
     return (
         <div className="pt-32 px-6 max-w-3xl mx-auto min-h-screen">
             <ScrollReveal>
-                <h2 className="text-4xl font-serif text-white mb-12">Configuración</h2>
+                <h2 className="text-4xl font-serif text-white mb-12">Settings</h2>
             </ScrollReveal>
             
             <div className="space-y-16">
                 {/* Section Profile */}
                 <ScrollReveal delay={100}>
                     <section>
-                        <h3 className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase mb-8 border-b border-white/10 pb-4">Perfil Público</h3>
+                        <h3 className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase mb-8 border-b border-white/10 pb-4">Public Profile</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                              <div className="flex flex-col gap-4">
                                  <label className="text-xs text-white/40 tracking-widest uppercase">Avatar</label>
                                  <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition-colors relative overflow-hidden group">
                                      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2574&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" />
-                                     <span className="text-xs uppercase relative z-10">Cambiar</span>
+                                     <span className="text-xs uppercase relative z-10">Change</span>
                                  </div>
                              </div>
                              <div className="space-y-6">
-                                <InputField label="Nombre Completo" placeholder="Alexandros" />
-                                <InputField label="Bio" placeholder="Breve descripción..." />
+                                <InputField label="Full Name" placeholder="Alexandros" />
+                                <InputField label="Bio" placeholder="Short description..." />
                              </div>
                         </div>
                     </section>
@@ -556,12 +556,12 @@ const SettingsView = () => {
                 {/* Section Security */}
                  <ScrollReveal delay={200}>
                     <section>
-                        <h3 className="text-xs font-bold tracking-[0.2em] text-red-400 uppercase mb-8 border-b border-white/10 pb-4">Seguridad</h3>
+                        <h3 className="text-xs font-bold tracking-[0.2em] text-red-400 uppercase mb-8 border-b border-white/10 pb-4">Security</h3>
                         <div className="space-y-4 max-w-md">
-                            <InputField label="Contraseña Actual" type="password" placeholder="••••••••" icon={Lock} />
-                            <InputField label="Nueva Contraseña" type="password" placeholder="••••••••" icon={Lock} />
+                            <InputField label="Current Password" type="password" placeholder="••••••••" icon={Lock} />
+                            <InputField label="New Password" type="password" placeholder="••••••••" icon={Lock} />
                             <div className="pt-4">
-                                <ButtonPrimary>Actualizar Claves</ButtonPrimary>
+                                <ButtonPrimary>Update Passwords</ButtonPrimary>
                             </div>
                         </div>
                     </section>

@@ -68,10 +68,10 @@ export const StudioEditorPage = () => {
         (msg: string) => appendStatusLog(msg)
       );
       setImageResult(imageUrl);
-      alert("Generación enviada. Comprueba la ventana de resultados.");
+  alert("Generation sent. Check the results panel.");
     } catch (err) {
-      console.error("Error generating from scene", err);
-      alert("Error al generar la imagen. Revisa la consola.");
+  console.error("Error generating from scene", err);
+  alert("Error generating image. Check the console.");
     } finally {
       setLoading(false);
     }
@@ -85,7 +85,7 @@ export const StudioEditorPage = () => {
           onClick={handleGenerateFromScene}
           className="uppercase tracking-widest text-xs px-4 py-2 border border-white/20 text-white/80 hover:bg-white hover:text-black transition-colors"
         >
-          Generar
+          Generate
         </button>
       </div>
 
@@ -104,7 +104,7 @@ export const StudioEditorPage = () => {
           }}
           className="uppercase tracking-widest text-xs px-4 py-2 border border-white/20 text-white/80 hover:bg-white hover:text-black transition-colors"
         >
-          Salir
+          Exit
         </button>
       </div>
 
