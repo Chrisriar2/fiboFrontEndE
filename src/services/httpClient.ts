@@ -1,4 +1,7 @@
-const API_BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:5000';
+// Use /api for proxied requests in development, or full URL in production
+const API_BASE_URL = import.meta.env.DEV 
+  ? '/api' 
+  : (import.meta.env.VITE_API_BASE_URL || 'https://fibo-backend.onrender.com');
 
 interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
