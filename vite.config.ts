@@ -15,6 +15,12 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/fibo/, ""),
         },
+        "/api": {
+          target: env.VITE_API_BASE_URL || "http://localhost:5000",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ""),
+          secure: false,
+        },
       },
     },
     plugins: [react()],
